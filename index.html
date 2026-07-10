@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-<title>smuxo</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;600;800&display=swap" rel="stylesheet">
+<title>smuxo · ПРЕМИУМ</title>
+<meta name="description" content="smuxo — сайты, телеграм-боты и софт. Авторские эффекты и уникальный опыт.">
+<meta property="og:title" content="smuxo · ПРЕМИУМ">
+<meta property="og:description" content="smuxo — сайты, телеграм-боты и софт. Авторские эффекты и уникальный опыт.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='58%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%23301006'/%3E%3Cstop offset='100%25' stop-color='%23060302'/%3E%3C/radialGradient%3E%3ClinearGradient id='d' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23ff5a1f' stop-opacity='0.3'/%3E%3Cstop offset='50%25' stop-color='%23ffe9c9'/%3E%3Cstop offset='100%25' stop-color='%23ff5a1f' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Cg transform='rotate(-16 32 32)'%3E%3Cpath d='M6 32a26 8 0 0 1 52 0' fill='none' stroke='url(%23d)' stroke-width='3' opacity='0.5'/%3E%3Ccircle cx='32' cy='32' r='11.5' fill='%23000'/%3E%3Ccircle cx='32' cy='32' r='12.2' fill='none' stroke='%23ffdca8' stroke-width='1.8'/%3E%3Cpath d='M6 32a26 8 0 0 0 52 0' fill='none' stroke='url(%23d)' stroke-width='4.6'/%3E%3C/g%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 * {
     margin: 0;
@@ -586,9 +591,33 @@ section {
     animation: bounce 2s infinite;
     animation-delay: 0.8s;
 }
+
+body{font-family:'Inter',system-ui,sans-serif}
+[class*="title"],.hero-subtitle,.to-top-button,.bottom-signature,.ldm-button{font-family:'Orbitron',sans-serif}
+p,.about-me-text{line-height:1.7}
+.tier-plaque{margin:30px auto 0;max-width:480px;padding:16px 20px;border:1px dashed rgba(255,90,31,0.4);border-radius:12px;font-size:13px;color:#9a8c82;text-align:center;line-height:1.6}
+.tier-plaque b{color:#ffb36b}
+.tier-plaque a{color:#ff5a1f;text-decoration:none;font-weight:600}
+
+#preloaderX{position:fixed;inset:0;z-index:99999;background:#070403;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity 0.7s ease,visibility 0.7s}
+#preloaderX.off{opacity:0;visibility:hidden}
+#preloaderX .bh{position:relative;width:84px;height:84px;transition:transform 0.7s cubic-bezier(0.5,0,0.9,0.4)}
+#preloaderX.off .bh{transform:scale(0) rotate(200deg)}
+#preloaderX .bh::before{content:'';position:absolute;inset:17px;border-radius:50%;background:#000;box-shadow:0 0 0 1.5px rgba(255,179,107,0.9),0 0 20px rgba(255,90,31,0.5)}
+#preloaderX .bh i{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 5%,rgba(255,90,31,0.9) 24%,rgba(255,217,160,0.95) 32%,rgba(255,90,31,0.5) 48%,transparent 64%);-webkit-mask:radial-gradient(circle,transparent 55%,#000 58%,#000 72%,transparent 75%);mask:radial-gradient(circle,transparent 55%,#000 58%,#000 72%,transparent 75%);animation:bhs 1.3s linear infinite}
+#preloaderX .t{font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:0.4em;color:#ffb36b}
+@keyframes bhs{to{transform:rotate(360deg)}}
+.hero-title{animation:heroGlow 3.4s ease-in-out infinite alternate}
+@keyframes heroGlow{from{text-shadow:0 0 26px rgba(255,90,31,0.35)}to{text-shadow:0 0 48px rgba(255,140,60,0.75),0 0 16px rgba(255,217,160,0.35)}}
+.project-card{position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,170,80,0.16) 50%,transparent 65%);transform:translateX(-130%);animation:cardSheen 4.2s ease-in-out infinite;pointer-events:none}
+@keyframes cardSheen{0%{transform:translateX(-130%)}45%{transform:translateX(130%)}100%{transform:translateX(130%)}}
+#dustX{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+@media (prefers-reduced-motion:reduce){.hero-title,.project-card::before,#preloaderX .bh i{animation:none}#dustX{display:none}}
 </style>
 </head>
 <body>
+<div id="preloaderX"><div class="bh"><i></i></div><div class="t">SMUXO</div></div>
 <div class="progress-bar" id="progressBar"></div>
 <button class="ldm-button" id="ldmButton">LDM OFF</button>
 <canvas id="parallaxCanvas"></canvas>
@@ -606,7 +635,7 @@ section {
         <div class="info-message">Нажми чтобы узнать больше</div>
         <div class="about-me-title animated-text">Обо мне</div>
         <div class="about-me-text">
-            Я занимаюсь програмированием уже много лет. Создаю сайты, телеграм-ботов, софты для termux и много чего ещё. Ниже представлены мои навыки в разных задачах.
+            Я занимаюсь программированием уже много лет. Создаю сайты, телеграм-ботов, софты для termux и много чего ещё. Ниже представлены мои навыки в разных задачах.
         </div>
     </div>
     <div class="skills-section">
@@ -692,6 +721,7 @@ section {
 </section>
 <div class="to-top">
     <a href="#" class="to-top-button">↑ НАВЕРХ</a>
+    <div class="tier-plaque">Этот сайт — живой пример тарифа <b>ПРЕМИУМ</b>: авторские эффекты, живая вкладка, атмосфера уровня кино. Заказать такой → <a href="https://t.me/smuxo" target="_blank">t.me/smuxo</a></div>
     <div class="bottom-signature">by @smuxo</div>
 </div>
 </main>
@@ -978,6 +1008,47 @@ document.querySelectorAll('.project-card').forEach(card => {
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
 });
+</script>
+<canvas id="dustX"></canvas>
+<script>
+(function(){
+const NAME='smuxo';
+const seq=[];
+for(let i=1;i<=NAME.length;i++)seq.push(NAME.slice(0,i)+'_');
+seq.push(NAME,NAME+'_',NAME,NAME+'_',NAME,NAME+'_');
+let ptr=0;
+setInterval(()=>{document.title=seq[ptr];ptr=(ptr+1)%seq.length;},480);
+const pre=document.getElementById('preloaderX');
+window.addEventListener('load',()=>{setTimeout(()=>pre.classList.add('off'),700);});
+setTimeout(()=>pre.classList.add('off'),5000);
+const dc=document.getElementById('dustX');
+const ctx=dc.getContext('2d');
+let dust=[];
+function di(){
+    dc.width=innerWidth;dc.height=innerHeight;dust=[];
+    const n=Math.min(22,Math.floor(innerWidth/22));
+    for(let i=0;i<n;i++)dust.push({x:Math.random()*dc.width,y:Math.random()*dc.height,r:0.6+Math.random()*1.6,vx:-(0.05+Math.random()*0.18),vy:-(0.03+Math.random()*0.1),ph:Math.random()*6.283,sp:0.004+Math.random()*0.009});
+}
+addEventListener('resize',di);
+di();
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function loop(){
+    if(!red&&!document.hidden){
+        ctx.clearRect(0,0,dc.width,dc.height);
+        for(const d of dust){
+            d.x+=d.vx;d.y+=d.vy;d.ph+=d.sp;
+            if(d.x<-4)d.x=dc.width+4;
+            if(d.y<-4)d.y=dc.height+4;
+            ctx.beginPath();
+            ctx.arc(d.x,d.y,d.r,0,6.283);
+            ctx.fillStyle='rgba(255,196,150,'+(0.08+0.14*(0.5+0.5*Math.sin(d.ph))).toFixed(3)+')';
+            ctx.fill();
+        }
+    }
+    requestAnimationFrame(loop);
+}
+if(!red)requestAnimationFrame(loop);
+})();
 </script>
 </body>
 </html>
